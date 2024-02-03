@@ -27,7 +27,7 @@
   <div class="card-container">
     <ion-card>
       <ion-card-header class="Applied">
-        Applied
+        Applied {{applied.length}}
       </ion-card-header>
       <ion-card-content cdkDropList [cdkDropListData]="applied" id="applied" (cdkDropListDropped)="drop($event)" [cdkDropListConnectedTo]="['interviewed', 'shortlisted', 'offered', 'finalized']">
         <ion-card *ngFor="let item of applied" cdkDrag [cdkDragData]="item" 
@@ -44,7 +44,7 @@
     
     <ion-card>
       <ion-card-header class="Interviewed">
-        Interviewed
+        Interviewed {{interviewed.length}}
       </ion-card-header>
       <ion-card-content cdkDropList [cdkDropListData]="interviewed" id="interviewed" (cdkDropListDropped)="drop($event)" [cdkDropListConnectedTo]="['applied', 'shortlisted', 'offered', 'finalized']">
         <ion-card *ngFor="let item of interviewed" cdkDrag [cdkDragData]="item" 
@@ -61,7 +61,7 @@
     
     <ion-card>
       <ion-card-header class="Shortlisted">
-        Shortlisted
+        Shortlisted {{shortlisted.length}}
       </ion-card-header>
       <ion-card-content cdkDropList [cdkDropListData]="shortlisted" id="shortlisted" (cdkDropListDropped)="drop($event)" [cdkDropListConnectedTo]="['applied', 'interviewed', 'offered', 'finalized']">
         <ion-card *ngFor="let item of shortlisted" cdkDrag [cdkDragData]="item">
@@ -76,7 +76,7 @@
     
     <ion-card>
       <ion-card-header class="Offered">
-        Offered
+        Offered {{offered.length}}
       </ion-card-header>
       <ion-card-content cdkDropList [cdkDropListData]="offered" id="offered" (cdkDropListDropped)="drop($event)" [cdkDropListConnectedTo]="['applied', 'interviewed', 'shortlisted', 'finalized']">
         <ion-card *ngFor="let item of offered" cdkDrag [cdkDragData]="item">
@@ -91,7 +91,7 @@
     
     <ion-card>
       <ion-card-header class="Finalized">
-        Finalized
+        Finalized {{finalized.length}}
       </ion-card-header>
       <ion-card-content cdkDropList [cdkDropListData]="finalized" id="finalized" (cdkDropListDropped)="drop($event)" [cdkDropListConnectedTo]="['applied', 'interviewed', 'shortlisted', 'offered']">
         <ion-card *ngFor="let item of finalized" cdkDrag [cdkDragData]="item">
