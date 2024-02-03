@@ -90,26 +90,31 @@ ion-toolbar {
 .Applied {
   background-color: red;
   color: white;
+  max-width: 100%;
 }
 
 .Interviewed {
   background-color: orange;
   color: white;
+  max-width: 100%;
 }
 
 .Shortlisted {
   background-color: gold;
   color: white;
+  max-width: 100%;
 }
 
 .Offered {
   background-color: rgb(121, 228, 121);
   color: white;
+  max-width: 100%;
 }
 
 .Finalized {
   background-color: green;
   color: white;
+  max-width: 100%;
 }
 @media only screen and (max-width: 600px) {
   #container strong {
