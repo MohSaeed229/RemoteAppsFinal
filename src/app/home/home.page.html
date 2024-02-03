@@ -1,0 +1,111 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Vacancies
+    </ion-title>
+      <ion-button id="headerButton" slot="end">Applicants</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Operations Officer</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content id="jobInfoContainer">
+      <div class="paragraphs">
+        <p><ion-icon name="bag-outline"></ion-icon> 2 Vacancies</p>
+        <p><ion-icon name="calendar-clear-outline"></ion-icon> 31st of December 2024</p>
+      </div>
+      <div class="buttons">
+        <ion-button fill="translucent"><ion-icon name="help-circle-outline"></ion-icon> Interviews</ion-button>
+        <ion-button fill="translucent"><ion-icon name="star-outline"></ion-icon>Top Interview</ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <div class="card-container">
+    <ion-card>
+      <ion-card-header class="Applied">
+        Applied
+      </ion-card-header>
+      <ion-card-content cdkDropList [cdkDropListData]="applied" id="applied" (cdkDropListDropped)="drop($event)" [cdkDropListConnectedTo]="['interviewed', 'shortlisted', 'offered', 'finalized']">
+        <ion-card *ngFor="let item of applied" cdkDrag [cdkDragData]="item" 
+        (mousedown)="handleMouseDown($event, item, 'applied')" 
+        (mouseup)="handleMouseUp()">
+          <ion-card-content>
+            <p>Name: {{ item.Name }}</p>
+            <p>Position: {{ item.Position }}</p>
+            <p>Nationality: {{ item.Nationality }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-card>
+      <ion-card-header class="Interviewed">
+        Interviewed
+      </ion-card-header>
+      <ion-card-content cdkDropList [cdkDropListData]="interviewed" id="interviewed" (cdkDropListDropped)="drop($event)" [cdkDropListConnectedTo]="['applied', 'shortlisted', 'offered', 'finalized']">
+        <ion-card *ngFor="let item of interviewed" cdkDrag [cdkDragData]="item" 
+  (mousedown)="handleMouseDown($event, item, 'interviewed')" 
+  (mouseup)="handleMouseUp()">
+          <ion-card-content>
+            <p>Name: {{ item.Name }}</p>
+            <p>Position: {{ item.Position }}</p>
+            <p>Nationality: {{ item.Nationality }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-card>
+      <ion-card-header class="Shortlisted">
+        Shortlisted
+      </ion-card-header>
+      <ion-card-content cdkDropList [cdkDropListData]="shortlisted" id="shortlisted" (cdkDropListDropped)="drop($event)" [cdkDropListConnectedTo]="['applied', 'interviewed', 'offered', 'finalized']">
+        <ion-card *ngFor="let item of shortlisted" cdkDrag [cdkDragData]="item">
+          <ion-card-content>
+            <p>Name: {{ item.Name }}</p>
+            <p>Position: {{ item.Position }}</p>
+            <p>Nationality: {{ item.Nationality }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-card>
+      <ion-card-header class="Offered">
+        Offered
+      </ion-card-header>
+      <ion-card-content cdkDropList [cdkDropListData]="offered" id="offered" (cdkDropListDropped)="drop($event)" [cdkDropListConnectedTo]="['applied', 'interviewed', 'shortlisted', 'finalized']">
+        <ion-card *ngFor="let item of offered" cdkDrag [cdkDragData]="item">
+          <ion-card-content>
+            <p>Name: {{ item.Name }}</p>
+            <p>Position: {{ item.Position }}</p>
+            <p>Nationality: {{ item.Nationality }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-card-content>
+    </ion-card>
+    
+    <ion-card>
+      <ion-card-header class="Finalized">
+        Finalized
+      </ion-card-header>
+      <ion-card-content cdkDropList [cdkDropListData]="finalized" id="finalized" (cdkDropListDropped)="drop($event)" [cdkDropListConnectedTo]="['applied', 'interviewed', 'shortlisted', 'offered']">
+        <ion-card *ngFor="let item of finalized" cdkDrag [cdkDragData]="item">
+          <ion-card-content>
+            <p>Name: {{ item.Name }}</p>
+            <p>Position: {{ item.Position }}</p>
+            <p>Nationality: {{ item.Nationality }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-card-content>
+    </ion-card>
+    
+  </div>
+  
+  
+
+</ion-content>
